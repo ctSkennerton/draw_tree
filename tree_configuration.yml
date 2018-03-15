@@ -1,0 +1,49 @@
+---
+# The name of the column in the annotations file that 
+# corresponds to the leaf name 
+leaf_name_column: Id
+# Provide the format for the leaf labels on the tree using
+# python's format style. The names of the arguments are
+# based on the annotations file given. In this case the
+# annotations file will have columns labeled organism and
+# accession for each leaf
+visual_label: '{organism} ({accession})'
+# Create an out group for the tree
+#
+# Use a single leaf as the out group
+#outgroup: 'leaf name'
+# Specify a list of leaves to set the outgroup at 
+# the lowest common ancestor of those leaves
+#outgroup: ['leaf name 1', 'leaf name 2', 'leaf name 3']
+# Specify the string "midpoint" to root the tree at
+# the midpoint node
+outgroup: 'midpoint'
+groups:
+    - 
+        name: Firmicutes
+        lca:
+            - "tr|A0A0S6W4K0|A0A0S6W4K0_9BACT"
+            - "tr|A0A1M4M7X7|A0A1M4M7X7_9FIRM"
+            - "Acfer_0113"
+    - 
+        name: other bacteria
+        lca:
+            - "Thivi_3181"
+            - "NT08PM_0930"
+            - "GSUB_00630"
+
+# Highlight an entire clade
+highlight:
+    - 
+        color: '#FF0000'
+        # highlight an entire clade using the lca property
+        lca:
+            - leaf name 1
+            - leaf name 2
+    - 
+        color: '#00FF00'
+            #or give the same color to individual leaves that 
+            #may not be monophyletic
+        leaves:
+            - leaf name 3
+            - leaf name 4
